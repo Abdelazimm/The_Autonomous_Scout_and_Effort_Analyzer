@@ -1,0 +1,16 @@
+# ── Core pinned dependencies (Phase 1) ──────────────────────────
+ultralytics>=8.1.0
+opencv-python>=4.9.0
+gradio>=4.20.0
+pydantic>=2.6.0
+
+# ── Placeholder dependencies (uncomment in later phases) ─────────
+# openai-whisper>=20231117    # Audio transcription (Phase 2+)
+# langchain>=0.1.20           # LLM orchestration & prompt chaining (Phase 3+)
+# bytetrack                   # Multi-object tracking via ByteTrack (Phase 2+)
+# fastapi>=0.110.0            # Production API layer for React frontend (Phase 4+)
+# uvicorn>=0.29.0             # ASGI server for FastAPI (Phase 4+)
+
+# ── Dev / CI dependencies ───────────────────────────────────────
+ruff>=0.3.0
+pytest>=8.0.0

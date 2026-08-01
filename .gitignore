@@ -1,0 +1,57 @@
+# ── Python ──────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ── Virtual environments ───────────────────────────────────────
+venv/
+.venv/
+env/
+.env
+
+# ── IDE / Editor ───────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ── Testing / CI ───────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ── Data files (keep dirs, ignore contents) ────────────────────
+data/roboflow/*
+!data/roboflow/.gitkeep
+data/soccertrack/*
+!data/soccertrack/.gitkeep
+data/custom_clips/*
+!data/custom_clips/.gitkeep
+
+# ── OS files ────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Node / Frontend (future React app) ─────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/build/

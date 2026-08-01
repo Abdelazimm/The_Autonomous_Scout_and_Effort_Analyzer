@@ -1,0 +1,50 @@
+# ── The Autonomous Scout & Effort Analyzer — Pipeline Config ─────
+
+# Unified taxonomy — adopted from the 4 Roboflow classes
+class_map:
+  0: ball
+  1: player
+  2: referee
+  3: goalkeeper
+
+# ── Vision stage ────────────────────────────────────────────────
+vision:
+  detector:
+    model: "yolov8n.pt"          # ultralytics checkpoint
+    confidence_threshold: 0.25
+    image_size: 640
+  tracker:
+    algorithm: "bytetrack"       # placeholder — see tools/ for alternatives
+    track_buffer: 30
+  movement_metrics:
+    distance_metric: "euclidean"
+    smoothing_window: 5
+
+# ── Audio stage ─────────────────────────────────────────────────
+audio:
+  transcription:
+    model: "base"                # Whisper model size
+    language: "en"
+  timestamp_linker:
+    tolerance_seconds: 1.0
+
+# ── Fusion stage ───────────────────────────────────────────────
+fusion:
+  aligner:
+    strategy: "nearest_timestamp"
+  context_builder:
+    window_seconds: 10
+    max_tokens: 2048
+  orchestrator:
+    llm_provider: "openai"       # placeholder
+    model: "gpt-4o"
+
+# ── Report stage ───────────────────────────────────────────────
+report:
+  template_dir: "report/templates"
+  output_format: "markdown"
+
+# ── API / Interface ─────────────────────────────────────────────
+api:
+  host: "0.0.0.0"
+  port: 8000
