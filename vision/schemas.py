@@ -30,3 +30,15 @@ class GroundTruthFrame(BaseModel):
     frame_idx: int = Field(..., description="Index of the frame")
     timestamp: Optional[float] = Field(default=None, description="Timestamp in seconds (if available)")
     detections: List[Detection] = Field(default_factory=list, description="Detections in this frame")
+
+
+class MovementLog(BaseModel):
+    """Aggregated movement metrics for a single player over a time window."""
+
+    player_id: int = Field(..., description="Persistent tracker ID for the player")
+    window_start_s: float = Field(..., ge=0.0, description="Window start time in seconds")
+    window_end_s: float = Field(..., ge=0.0, description="Window end time in seconds")
+    state: str = Field(..., description="Dominant movement state: idle | jogging | sprinting")
+    avg_speed_mps: float = Field(..., ge=0.0, description="Mean speed over the window (m/s)")
+    distance_covered_m: float = Field(..., ge=0.0, description="Total distance covered (m)")
+    juggle_count: int = Field(default=0, ge=0, description="Ball-juggle count (optional, default 0)")

@@ -1,5 +1,7 @@
 target-version = "py38"
 line-length = 100
 
+extend-exclude = ["notebooks"]
+
 [lint]
 ignore = ["UP006", "UP035", "UP045", "FA100"]
